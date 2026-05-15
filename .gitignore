@@ -1,0 +1,17 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Database files
+*.db
+*.sqlite3
+ibbl_final_pro.db
+
+# IDE files
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
