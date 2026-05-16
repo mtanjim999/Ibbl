@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IBBL Web ATM Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <h1>IBBL Web ATM Demo</h1>
+        <p>Use the web version of the ATM in your browser. Data is stored locally in your browser storage.</p>
+      </div>
+      <div class="main">
+        <div id="message-area"></div>
+
+        <section id="home-screen">
+          <h2 class="section-title">Welcome to Islami Bank Web ATM</h2>
+          <div class="button-row">
+            <button id="home-login" class="btn btn-primary">User Login</button>
+            <button id="open-admin-auth" class="btn btn-secondary">Admin Access</button>
+          </div>
+          <div class="message">Demo account: <strong>1001</strong> / PIN <strong>1234</strong>.</div>
+        </section>
+
+        <section id="login-screen" class="hidden">
+          <h2 class="section-title">User Login</h2>
+          <div class="form-group">
+            <label for="login-account">Account Number</label>
+            <input id="login-account" placeholder="Enter account number" />
+          </div>
+          <div class="form-group">
+            <label for="login-pin">PIN</label>
+            <input id="login-pin" type="password" placeholder="Enter 4-digit PIN" maxlength="4" />
+          </div>
+          <div class="button-row">
+            <button id="login-submit" class="btn btn-primary">Log In</button>
+            <button id="login-back" class="btn btn-secondary">Back</button>
+          </div>
+        </section>
+
+        <section id="adminAuth-screen" class="hidden">
+          <h2 class="section-title">Admin Access</h2>
+          <div class="form-group">
+            <label for="admin-pin">Admin PIN</label>
+            <input id="admin-pin" type="password" placeholder="Enter admin PIN" maxlength="4" />
+          </div>
+          <div class="button-row">
+            <button id="admin-auth-submit" class="btn btn-primary">Continue</button>
+            <button id="admin-auth-back" class="btn btn-secondary">Back</button>
+          </div>
+          <p class="message">Admin PIN is <strong>0000</strong> for this demo.</p>
+        </section>
+
+        <section id="admin-screen" class="hidden">
+          <h2 class="section-title">Admin Panel</h2>
+          <div class="form-group">
+            <label for="admin-account">New Account Number</label>
+            <input id="admin-account" placeholder="e.g. 1002" />
+          </div>
+          <div class="form-group">
+            <label for="admin-account-pin">Set PIN</label>
+            <input id="admin-account-pin" type="password" placeholder="4-digit PIN" maxlength="4" />
+          </div>
+          <div class="form-group">
+            <label for="admin-account-balance">Initial Balance</label>
+            <input id="admin-account-balance" type="number" min="0" step="0.01" placeholder="0.00" />
+          </div>
+          <div class="button-row">
+            <button id="admin-create" class="btn btn-primary">Create Account</button>
+            <button id="admin-back" class="btn btn-secondary">Back</button>
+          </div>
+        </section>
+
+        <section id="dashboard-screen" class="hidden">
+          <h2 class="section-title">Account Dashboard</h2>
+          <div class="message">Logged in as <strong id="dashboard-account"></strong>.</div>
+          <div class="message">Balance: <strong id="dashboard-balance"></strong></div>
+          <div class="button-row">
+            <button id="dashboard-withdraw" class="btn btn-primary">Withdraw</button>
+            <button id="dashboard-deposit" class="btn btn-primary">Deposit</button>
+          </div>
+          <div class="button-row">
+            <button id="dashboard-history" class="btn btn-secondary">Mini Statement</button>
+            <button id="dashboard-login-history" class="btn btn-secondary">Login History</button>
+          </div>
+          <button id="dashboard-logout" class="btn btn-danger">Logout</button>
+        </section>
+
+        <section id="history-screen" class="hidden">
+          <h2 class="section-title">Mini Statement</h2>
+          <p class="message">Transactions are sorted by amount, highest first.</p>
+          <table>
+            <thead>
+              <tr><th>Type</th><th>Time</th><th>Amount</th></tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
+          <div class="button-row">
+            <button id="history-back" class="btn btn-secondary">Back to Dashboard</button>
+          </div>
+        </section>
+
+        <section id="login-history-screen" class="hidden">
+          <h2 class="section-title">Login History</h2>
+          <table>
+            <thead>
+              <tr><th>Status</th><th>Timestamp</th></tr>
+            </thead>
+            <tbody id="login-history-body"></tbody>
+          </table>
+          <div class="button-row">
+            <button id="login-history-back" class="btn btn-secondary">Back to Dashboard</button>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="footer">This demo runs purely in your browser. No server is required.</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
